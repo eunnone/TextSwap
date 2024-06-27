@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Replacer Options</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    #container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 800px; /* Increased from 500px to 800px */
+    }
+    h1, h2 {
+      margin-top: 0;
+      color: #000; /* Changed to black */
+    }
+    h1 { font-size: 1.5em; }
+    h2 { font-size: 1.2em; margin-top: 20px; }
+    .input-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    input[type="text"] {
+      flex: 1;
+      margin-right: 5px;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    button {
+      padding: 8px 15px;
+      cursor: pointer;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      filter: brightness(90%);
+    }
+    #addButton, #exportButton, #importButton {
+      background-color: #4CAF50; /* Green */
+    }
+    #addButton {
+      padding: 8px 15px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px;
+      border-bottom: 1px solid #eee;
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+    li input {
+      width: calc(50% - 5px);
+      padding: 5px;
+      margin: 0;
+    }
+    li button {
+      padding: 5px 10px;
+      margin-left: 5px;
+      background-color: #f44336; /* Red */
+    }
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    #exportButton, #importButton {
+      width: calc(50% - 5px);
+    }
+    #importFile {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Word Replacer Settings</h1>
+    
+    <h2>Add New Replacement</h2>
+    <div class="input-group">
+      <input type="text" id="originalWord" placeholder="Original Word">
+      <input type="text" id="replacementWord" placeholder="Replacement Word">
+      <button id="addButton">Add</button>
+    </div>
+    
+    <h2>Replacement List</h2>
+    <ul id="wordList"></ul>
+    
+    <div class="button-group">
+      <button id="exportButton">Export to CSV</button>
+      <input type="file" id="importFile" accept=".csv">
+      <button id="importButton">Import from CSV</button>
+    </div>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>
