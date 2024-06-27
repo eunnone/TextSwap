@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "TextSwap",
-  "version": "1.1",
+  "version": "1.0",
   "description": "Replaces predefined words with other words.",
   "permissions": [
     "storage",
