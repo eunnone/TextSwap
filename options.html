@@ -5,118 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Word Replacer Options</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-      margin: 0;
-      background-color: #121212;
-      padding: 20px;
-      box-sizing: border-box;
-      color: #ffffff;
-    }
-    #container {
-      background: #1e1e1e;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      width: 100%;
-      max-width: 800px;
-    }
-    h1, h2 {
-      margin-top: 0;
-      color: #ffffff;
-    }
-    h1 { font-size: 1.5em; }
-    h2 { font-size: 1.2em; margin-top: 20px; }
-    .input-group {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    input[type="text"] {
-      flex: 1;
-      margin-right: 5px;
-      padding: 8px;
-      border: 1px solid #555;
-      border-radius: 4px;
-      background-color: #333;
-      color: #ffffff;
-    }
-    button {
-      padding: 8px 15px;
-      cursor: pointer;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      transition: background-color 0.3s;
-    }
-    button:hover {
-      filter: brightness(90%);
-    }
-    #addButton, #exportButton, #importButton {
-      background-color: #4CAF50;
-    }
-    #addButton {
-      padding: 8px 15px;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-      max-height: 300px;
-      overflow-y: auto;
-      border: 1px solid #555;
-      margin-bottom: 10px;
-      border-radius: 4px;
-      background-color: #1e1e1e;
-    }
-    li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 5px;
-      border-bottom: 1px solid #333;
-    }
-    li:last-child {
-      border-bottom: none;
-    }
-    li input {
-      width: calc(50% - 5px);
-      padding: 5px;
-      margin: 0;
-      background-color: #333;
-      border: 1px solid #555;
-      color: #ffffff;
-    }
-    li button {
-      padding: 5px 10px;
-      margin-left: 5px;
-      background-color: #f44336;
-    }
-    .button-group {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-    }
-    #exportButton, #importButton {
-      width: calc(50% - 5px);
-    }
-    #importFile {
-      display: none;
-    }
-    #searchInput {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 10px;
-      border: 1px solid #555;
-      border-radius: 4px;
-      box-sizing: border-box;
-      background-color: #333;
-      color: #ffffff;
-    }
-  </style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #121212;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #ffffff;
+  }
+  #container {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 40px);
+  }
+  h1, h2 {
+    margin-top: 0;
+    color: #ffffff;
+  }
+  h1 { font-size: 1.5em; }
+  h2 { font-size: 1.2em; margin-top: 20px; }
+  .input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  input[type="text"] {
+    flex: 1;
+    margin-right: 5px;
+    padding: 8px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #333;
+    color: #ffffff;
+  }
+  button {
+    padding: 8px 15px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    filter: brightness(90%);
+  }
+  #addButton, #exportButton, #importButton {
+    background-color: #4CAF50;
+  }
+  #addButton {
+    padding: 8px 15px;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid #555;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background-color: #1e1e1e;
+  }
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid #333;
+  }
+  li:last-child {
+    border-bottom: none;
+  }
+  li input {
+    width: calc(50% - 5px);
+    padding: 5px;
+    margin: 0;
+    background-color: #333;
+    border: 1px solid #555;
+    color: #ffffff;
+  }
+  li button {
+    padding: 5px 10px;
+    margin-left: 5px;
+    background-color: #f44336;
+  }
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  #exportButton, #importButton {
+    width: calc(50% - 5px);
+  }
+  #importFile {
+    display: none;
+  }
+  #searchInput {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #333;
+    color: #ffffff;
+  }
+</style>
 </head>
 <body>
   <div id="container">

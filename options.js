@@ -51,6 +51,18 @@ document.addEventListener('DOMContentLoaded', function() {
         updateWordList(replacements, searchInput.value.trim());
       });
 
+      originalInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          saveButton.click();
+        }
+      });
+
+      replacementInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          saveButton.click();
+        }
+      });
+
       li.appendChild(originalInput);
       li.appendChild(replacementInput);
       li.appendChild(saveButton);
@@ -72,6 +84,18 @@ document.addEventListener('DOMContentLoaded', function() {
         updateWordList(replacements, searchInput.value.trim());
         originalWordInput.value = '';
         replacementWordInput.value = '';
+      }
+    });
+
+    originalWordInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        addButton.click();
+      }
+    });
+
+    replacementWordInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        addButton.click();
       }
     });
 
