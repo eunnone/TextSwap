@@ -12,21 +12,22 @@
       align-items: flex-start;
       min-height: 100vh;
       margin: 0;
-      background-color: #f0f0f0;
+      background-color: #121212;
       padding: 20px;
       box-sizing: border-box;
+      color: #ffffff;
     }
     #container {
-      background: white;
+      background: #1e1e1e;
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       width: 100%;
-      max-width: 800px; /* Increased from 500px to 800px */
+      max-width: 800px;
     }
     h1, h2 {
       margin-top: 0;
-      color: #000; /* Changed to black */
+      color: #ffffff;
     }
     h1 { font-size: 1.5em; }
     h2 { font-size: 1.2em; margin-top: 20px; }
@@ -39,8 +40,10 @@
       flex: 1;
       margin-right: 5px;
       padding: 8px;
-      border: 1px solid #ddd;
+      border: 1px solid #555;
       border-radius: 4px;
+      background-color: #333;
+      color: #ffffff;
     }
     button {
       padding: 8px 15px;
@@ -54,7 +57,7 @@
       filter: brightness(90%);
     }
     #addButton, #exportButton, #importButton {
-      background-color: #4CAF50; /* Green */
+      background-color: #4CAF50;
     }
     #addButton {
       padding: 8px 15px;
@@ -64,16 +67,17 @@
       padding: 0;
       max-height: 300px;
       overflow-y: auto;
-      border: 1px solid #ddd;
+      border: 1px solid #555;
       margin-bottom: 10px;
       border-radius: 4px;
+      background-color: #1e1e1e;
     }
     li {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 5px;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #333;
     }
     li:last-child {
       border-bottom: none;
@@ -82,11 +86,14 @@
       width: calc(50% - 5px);
       padding: 5px;
       margin: 0;
+      background-color: #333;
+      border: 1px solid #555;
+      color: #ffffff;
     }
     li button {
       padding: 5px 10px;
       margin-left: 5px;
-      background-color: #f44336; /* Red */
+      background-color: #f44336;
     }
     .button-group {
       display: flex;
@@ -98,6 +105,16 @@
     }
     #importFile {
       display: none;
+    }
+    #searchInput {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #555;
+      border-radius: 4px;
+      box-sizing: border-box;
+      background-color: #333;
+      color: #ffffff;
     }
   </style>
 </head>
@@ -113,6 +130,9 @@
     </div>
     
     <h2>Replacement List</h2>
+    <div class="input-group">
+      <input type="text" id="searchInput" placeholder="Search replacements...">
+    </div>
     <ul id="wordList"></ul>
     
     <div class="button-group">

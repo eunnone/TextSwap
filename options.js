@@ -6,14 +6,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const exportButton = document.getElementById('exportButton');
   const importButton = document.getElementById('importButton');
   const importFile = document.getElementById('importFile');
+  const searchInput = document.getElementById('searchInput');
 
   function saveWords(replacements) {
     chrome.storage.sync.set({ replacements });
   }
 
-  function updateWordList(replacements) {
+  function updateWordList(replacements, filter = '') {
     wordList.innerHTML = '';
     for (const [original, replacement] of Object.entries(replacements)) {
+      if (filter && !original.toLowerCase().includes(filter.toLowerCase()) && !replacement.toLowerCase().includes(filter.toLowerCase())) {
+        continue;
+      }
       const li = document.createElement('li');
 
       const originalInput = document.createElement('input');
@@ -35,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
           delete replacements[original];
           replacements[newOriginal] = newReplacement;
           saveWords(replacements);
-          updateWordList(replacements);
+          updateWordList(replacements, searchInput.value.trim());
         }
       });
 
@@ -44,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
       deleteButton.addEventListener('click', () => {
         delete replacements[original];
         saveWords(replacements);
-        updateWordList(replacements);
+        updateWordList(replacements, searchInput.value.trim());
       });
 
       li.appendChild(originalInput);
@@ -65,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (original && replacement) {
         replacements[original] = replacement;
         saveWords(replacements);
-        updateWordList(replacements);
+        updateWordList(replacements, searchInput.value.trim());
         originalWordInput.value = '';
         replacementWordInput.value = '';
       }
@@ -102,10 +106,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
           }
           saveWords(newReplacements);
-          updateWordList(newReplacements);
+          updateWordList(newReplacements, searchInput.value.trim());
         };
         reader.readAsText(file);
       }
+    });
+
+    searchInput.addEventListener('input', () => {
+      updateWordList(replacements, searchInput.value.trim());
     });
   });
 });
