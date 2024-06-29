@@ -22,11 +22,11 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       width: 100%;
-      max-width: 800px; /* Increased from 500px to 800px */
+      max-width: 800px;
     }
     h1, h2 {
       margin-top: 0;
-      color: #000; /* Changed to black */
+      color: #000;
     }
     h1 { font-size: 1.5em; }
     h2 { font-size: 1.2em; margin-top: 20px; }
@@ -54,7 +54,7 @@
       filter: brightness(90%);
     }
     #addButton, #exportButton, #importButton {
-      background-color: #4CAF50; /* Green */
+      background-color: #4CAF50;
     }
     #addButton {
       padding: 8px 15px;
@@ -86,7 +86,7 @@
     li button {
       padding: 5px 10px;
       margin-left: 5px;
-      background-color: #f44336; /* Red */
+      background-color: #f44336;
     }
     .button-group {
       display: flex;
@@ -98,6 +98,14 @@
     }
     #importFile {
       display: none;
+    }
+    #searchInput {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
     }
   </style>
 </head>
@@ -113,6 +121,9 @@
     </div>
     
     <h2>Replacement List</h2>
+    <div class="input-group">
+      <input type="text" id="searchInput" placeholder="Search replacements...">
+    </div>
     <ul id="wordList"></ul>
     
     <div class="button-group">
